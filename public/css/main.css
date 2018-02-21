@@ -1,0 +1,71 @@
+
+body {
+    width: 80%;
+    margin: 0 auto;
+    box-sizing:border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+form * {
+    display:block;
+    width: 100%;
+}
+
+.list-item {
+    display:inline-block;
+    width:30%;
+    border:solid 1px #dedede;
+    border-radius: .2rem;
+    padding: .2rems;
+    box-sizing: border-box;
+}
+
+
+.list-item p {
+    margin: 0;
+}
+
+.navbar {
+    margin: 2px 0; 
+}
+.navbar-item {
+    display: inline;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+
+.right {
+    float: right;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.comment:nth-child(n+2) {
+    border-top: 1px solid #dedede ;
+}
+
+.comment p {
+    margin: .5rem 0;
+}

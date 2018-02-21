@@ -1,0 +1,37 @@
+<% include partials/header %>
+
+<h1><%= post.name %></h1>
+<div class="row">
+
+    <div class="nine columns">
+        
+        <img src="<%= post.img %>" />
+        <p><%= post.description %></p>
+        <h5>Comments</h5>
+        <a href="<%= post._id %>/comments/new">Leave a Comment</a>
+        <div class="comments">
+            <% post.comments.forEach(function(comment){ %>
+                <div class="comment">
+                    <p><span class="strong"><%= comment.author %></span> <span>★☆★★☆</span><span class="right">10 days ago</span></p>
+                    <p><%= comment.text %></p>
+                </div>
+            <% }) %>
+        </div>
+        <a href="/posts">> All posts</a>
+    </div>
+    <div class="three columns">
+        <h6>Tags</h6>
+        <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
+        <h6>This is a list</h6>
+        <ul>
+            <li>Lorem Ipsum</li>
+            <li>Lorem Ipsum</li>
+            <li>Lorem Ipsum</li>
+            <li>Lorem Ipsum</li>
+        </ul>
+    </div>
+</div>
+
+
+<% include partials/footer %>
+

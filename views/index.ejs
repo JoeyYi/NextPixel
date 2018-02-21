@@ -1,0 +1,16 @@
+<% include partials/header %>
+<h1>Coincidences</h1>
+<ul>
+    <% list.forEach(function(item){ %>
+        <li class="list-item">
+            <img class="list-img" src="<%= item.img %>"/>
+            <p><%= item.name %></p>
+            <a href="/posts/<%= item._id %>">More Info </a>
+        </li>
+
+    <% }); %>
+</ul>
+<a href="/posts/new">Add New Site</a>
+
+<% include partials/footer %>
+
