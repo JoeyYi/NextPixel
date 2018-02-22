@@ -1,0 +1,12 @@
+<% include partials/header %>
+<h1>Edit Post <a href="/posts/<%= post._id %>"><%= post.name %></a></h1>
+<form action="/posts/<%= post._id %>?_method=PUT" method="post">
+    <input type="text" name="post[name]" value="<%= post.name %>"/>
+    <input type="text" name="post[img]" value="<%= post.img %>" />
+    <textarea name="post[description]"><%= post.description %></textarea>
+    <button type="submit" >Submit</button>
+</form>
+
+<a href="/posts">view all posts</a>
+
+<% include partials/footer %>

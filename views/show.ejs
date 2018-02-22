@@ -6,18 +6,33 @@
     <div class="nine columns">
         
         <img src="<%= post.img %>" />
+        <p>Posted By <%= post.user.username %></p>
         <p><%= post.description %></p>
-        <h5>Comments</h5>
-        <a href="<%= post._id %>/comments/new">Leave a Comment</a>
+        <h5 class="strong">Comments (<%= post.comments.length %>)</h5>
         <div class="comments">
             <% post.comments.forEach(function(comment){ %>
                 <div class="comment">
-                    <p><span class="strong"><%= comment.author %></span> <span>★☆★★☆</span><span class="right">10 days ago</span></p>
+                    <p><span class="strong"><%= comment.user.username %></span> <span>★☆★★☆</span><span class="right">10 days ago</span></p>
                     <p><%= comment.text %></p>
                 </div>
             <% }) %>
         </div>
-        <a href="/posts">> All posts</a>
+        <div>
+            <% if(currentUser){ %>
+                <div class="new-comment">
+                    <form action="/posts/<%= post._id %>/comments" method="post">
+                        <textarea name="comment[text]">Leave a comment...</textarea>
+                        <button type="submit" >Submit</button>
+                    </form>
+                    <a href="<%= post._id %>/comments/new">>> Edit comment in new tab</a>
+                </div>
+            <% } else { %>
+                <div class="new-comment">
+                    <p>>><a href="/login">Login</a> or <a href="/register">sign up</a> to leave a comment.</p>
+                </div>
+            <% } %>
+        </div>
+        <a href="/posts">>> All posts</a>
     </div>
     <div class="three columns">
         <h6>Tags</h6>

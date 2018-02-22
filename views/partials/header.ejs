@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Coincidence Ah</title>
-        <meta name="description" content="Share coincidences in your life." />
+        <title>Next Pixel</title>
+        <meta name="description" content="Share your favorite scenes in 2 dimension world." />
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <link rel="stylesheet" type="text/css" href="/css/skeleton.css">
     </head>
     <body>
         <div class="navbar">
             <ul class="navbar-list">
-                <li class="navbar-item">Nowhere</li>
-                <li class="navbar-item right">Sign In</li>
+
+                <li class="navbar-item">NEXT PIXEL</li>
+                <div class="right">
+                    <% if(!currentUser){ %>
+                        <li class="navbar-item"><a href="/login">Login</a></li>
+                        <li class="navbar-item"><a href="/register">Sign Up</a></li>
+                    <% } else { %>
+                        <li class="navbar-item"><a href="#"><%= currentUser.username %></a></li>
+                        <li class="navbar-item"><a href="/logout">Logout</a></li>
+                    <% } %>
+                </div>
+
+
             </ul>
         </div>
 
