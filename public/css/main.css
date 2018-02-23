@@ -37,7 +37,8 @@ form textarea {
     width:30%;
     border:solid 1px #dedede;
     border-radius: .2rem;
-    padding: .2rems;
+    padding: .5rem;
+    margin: 0 1rem 1rem 0;
     box-sizing: border-box;
 }
 
@@ -49,6 +50,8 @@ form textarea {
 .list-item img {
     border-radius: .2rem;
 }
+
+
 
 .navbar {
     margin: 2px 0; 
@@ -90,3 +93,35 @@ form textarea {
     border-radius: .4rem;
     display: inline;
 }
+
+.index-header {
+    margin-bottom: 3rem;
+}
+
+.index-header * {
+    color: #1EAEDB;
+    margin-bottom: 0;
+}
+
+.index-header button {
+    border-color: #1EAEDB;
+}
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+#home h1 {
+    margin-top: 10rem;
+    color: #1EAEDB;
+}
+
+#home button {
+//    border-color: white;
+    margin-bottom: 25rem;
+}
+#home a {
+//    color: white;
+}
+
