@@ -10,7 +10,8 @@ var express        = require("express"),
     Comment        = require("./models/comment"),
     User           = require("./models/user"),
     seedDB         = require("./seeds"),
-    methodOverride = require("method-override");
+    methodOverride = require("method-override"),
+    flash          = require("connect-flash");
 
 //requiring routes
 var postRoutes = require("./routes/posts"),
@@ -33,6 +34,7 @@ app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(flash());
 
 
 //PASSPORT CONFIG
@@ -47,9 +49,12 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//pass passport user object{username, _id} to res.locals for each route
+
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
+    //pass passport user object{username, _id} to res.locals for each route
+    res.locals.flash = req.flash("flash");
+    //flash message
     next();
 })
 

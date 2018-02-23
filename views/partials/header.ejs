@@ -8,20 +8,23 @@
     </head>
     <body>
         <div class="navbar">
-            <ul class="navbar-list">
+            <div class="navbar-list">
 
-                <li class="navbar-item">NEXT PIXEL</li>
+                <a class="navbar-item" href="/">NEXT PIXEL</a>
                 <div class="right">
                     <% if(!currentUser){ %>
-                        <li class="navbar-item"><a href="/login">Login</a></li>
-                        <li class="navbar-item"><a href="/register">Sign Up</a></li>
+                        <a class="navbar-item" href="/login">Login</a>
+                        <a class="navbar-item" href="/register">Sign Up</a>
                     <% } else { %>
-                        <li class="navbar-item"><a href="#"><%= currentUser.username %></a></li>
-                        <li class="navbar-item"><a href="/logout">Logout</a></li>
+                        <a class="navbar-item" href="#"><%= currentUser.username %></a>
+                        <a class="navbar-item" href="/logout">Logout</a>
                     <% } %>
                 </div>
 
 
-            </ul>
+            </div>
         </div>
-
+        <% if(flash && flash.length > 0){ %>
+            <p id="flash"><%= flash %></p>
+        <% } %>
+ 

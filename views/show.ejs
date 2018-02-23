@@ -8,11 +8,34 @@
         <img src="<%= post.img %>" />
         <p>Posted By <%= post.user.username %></p>
         <p><%= post.description %></p>
+        <% if(currentUser && post.user.id.equals(currentUser._id)){ %>
+            <div class="controls">
+                
+                <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                    <a href="/posts/<%= post._id %>/edit"><button type="button">Edit</button></a>
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        <% } %>
         <h5 class="strong">Comments (<%= post.comments.length %>)</h5>
         <div class="comments">
             <% post.comments.forEach(function(comment){ %>
                 <div class="comment">
-                    <p><span class="strong"><%= comment.user.username %></span> <span>★☆★★☆</span><span class="right">10 days ago</span></p>
+                    <div>
+                        <span class="strong"><%= comment.user.username %></span> 
+                            <% if(currentUser && comment.user.id.equals(currentUser._id)){ %>
+                                <div class="controls">
+                                    <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit">
+                                        <button type="button">Edit</button>
+                                    </a>
+                                    <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </div>
+                            <% } %>
+                        
+                        <span>★☆★★☆</span><span class="right">10 days ago</span>
+                    </div>
                     <p><%= comment.text %></p>
                 </div>
             <% }) %>
@@ -32,7 +55,7 @@
                 </div>
             <% } %>
         </div>
-        <a href="/posts">>> All posts</a>
+        <a href="/posts"><><< All posts</a>
     </div>
     <div class="three columns">
         <h6>Tags</h6>

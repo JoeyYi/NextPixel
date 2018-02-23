@@ -21,13 +21,14 @@ img {
     max-width: 100%;
     box-sizing: border-box;
 }
+
 form {
     width: 100%;
     margin: 0 auto;
 }
 
-form * {
-    display:block;
+form textarea {
+    display: block;
     width: 100%;
 }
 
@@ -43,6 +44,10 @@ form * {
 
 .list-item p {
     margin: 0;
+}
+
+.list-item img {
+    border-radius: .2rem;
 }
 
 .navbar {
@@ -68,4 +73,20 @@ form * {
 
 .comment p {
     margin: .5rem 0;
+}
+
+.controls {
+    display: inline;
+}
+.controls * {
+    display: inline;
+    margin: 0 2px;
+}
+
+#flash {
+    color: #1EAEDB;
+    padding: 2px 5px;
+    border: solid 1px #1EAEDB;
+    border-radius: .4rem;
+    display: inline;
 }
