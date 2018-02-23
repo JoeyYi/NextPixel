@@ -34,8 +34,6 @@ router.post("/",middleware.isLoggedIn, function(req,res){
     Post.create(newPost,function(err,created){
         if(err){
             console.log(err);
-        }else{
-            console.log(created);
         }
     });
     res.redirect("/posts");

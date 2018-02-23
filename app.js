@@ -19,15 +19,15 @@ var postRoutes = require("./routes/posts"),
     indexRoutes = require("./routes/index");
 
 
-// mongoose.connect("mongodb://localhost/project",function(err){
-//     if(err){
-//         console.log("DB error");
-//         console.log(err);
-//     }else{
-//         console.log("DB connected");
-//     }
-// });
-mongoose.connect("mongodb://joey:wangyijing@ds147228.mlab.com:47228/nextpixel");
+dburl = process.env.DATABASEURL || "mongodb://localhost/project";
+mongoose.connect(dburl,function(err){
+    if(err){
+        console.log("DB error");
+        console.log(err);
+    }else{
+        console.log("DB connected");
+    }
+});
 
 seedDB();
 
