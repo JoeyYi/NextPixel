@@ -6,7 +6,7 @@
     <div class="nine columns">
         
         <img src="<%= post.img %>" />
-        <p>Posted By <%= post.user.username %></p>
+        <p>Posted By <%= post.user.username %>, <%= moment(post.createdAt).fromNow() %></p>
         <p><%= post.description %></p>
         <% if(currentUser && post.user.id.equals(currentUser._id)){ %>
             <div class="controls">
@@ -34,7 +34,7 @@
                                 </div>
                             <% } %>
                         
-                        <span>★☆★★☆</span><span class="right">10 days ago</span>
+                        <span class="right"><%= moment(comment.createdAt).fromNow() %></span>
                     </div>
                     <p><%= comment.text %></p>
                 </div>
@@ -51,7 +51,7 @@
                 </div>
             <% } else { %>
                 <div class="new-comment">
-                    <p>>><a href="/login">Login</a> or <a href="/register">sign up</a> to leave a comment.</p>
+                    <p>>> <a href="/login">Login</a> or <a href="/register">sign up</a> to leave a comment.</p>
                 </div>
             <% } %>
         </div>
