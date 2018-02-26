@@ -6,8 +6,13 @@
     <div class="nine columns">
         
         <img src="<%= post.img %>" />
-        <p>Posted By <%= post.user.username %></p>
+        <p>Posted By <%= post.user.username %>, <%= moment(post.createdAt).fromNow() %></p>
         <p><%= post.description %></p>
+        <button type="button" id="like"
+            <% if(currentUser){ %>
+                onclick="like()"
+            <% } %>            
+        ><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span>--</span></button>
         <% if(currentUser && post.user.id.equals(currentUser._id)){ %>
             <div class="controls">
                 
@@ -34,7 +39,7 @@
                                 </div>
                             <% } %>
                         
-                        <span>★☆★★☆</span><span class="right">10 days ago</span>
+                        <span class="right"><%= moment(comment.createdAt).fromNow() %></span>
                     </div>
                     <p><%= comment.text %></p>
                 </div>
