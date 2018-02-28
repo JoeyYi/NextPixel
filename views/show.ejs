@@ -8,6 +8,11 @@
         <img src="<%= post.img %>" />
         <p>Posted By <%= post.user.username %>, <%= moment(post.createdAt).fromNow() %></p>
         <p><%= post.description %></p>
+        <button id="fav" 
+        <% if(currentUser){ %>
+        onclick="addFavs()"
+        <% } %>
+        ><i class="fa fa-star-o" aria-hidden="true"></i> --</button>
         <% if(currentUser && post.user.id.equals(currentUser._id)){ %>
             <div class="controls">
                 
@@ -58,15 +63,8 @@
         <a href="/posts">>> All posts</a>
     </div>
     <div class="three columns">
-        <h6>Tags</h6>
-        <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
-        <h6>This is a list</h6>
-        <ul>
-            <li>Lorem Ipsum</li>
-            <li>Lorem Ipsum</li>
-            <li>Lorem Ipsum</li>
-            <li>Lorem Ipsum</li>
-        </ul>
+        <h6>Latest Posts</h6>
+        <div id="latest"><i class="fa fa-spin fa-spinner" aria-hidden="true"></i></div>
     </div>
 </div>
 

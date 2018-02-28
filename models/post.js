@@ -19,7 +19,8 @@ var postSchema = new mongoose.Schema({
             ref: "Comment"
         }
     ],
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type: Date, default: Date.now },
+    favorites: { type: Number, default: 0 }
 });
 
 module.exports = mongoose.model("Post", postSchema);
