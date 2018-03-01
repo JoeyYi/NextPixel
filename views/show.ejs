@@ -6,7 +6,7 @@
     <div class="nine columns">
         
         <img src="<%= post.img %>" />
-        <p>Posted By <%= post.user.username %>, <%= moment(post.createdAt).fromNow() %></p>
+        <p>Posted By <a href="/users/<%= post.user.id %>"><%= post.user.username %></a>, <%= moment(post.createdAt).fromNow() %></p>
         <p><%= post.description %></p>
         <button id="fav" 
         <% if(currentUser){ %>
