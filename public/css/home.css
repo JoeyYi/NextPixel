@@ -1,53 +1,97 @@
-html, body {
-    margin: 0;
-    padding: 0;
+html {
     height: 100%;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+    height: 100%;
+}
 
-h1 {
-    font-size: 600%;
-    margin: 1.5rem;
+#landing-header h1 {
+    margin: 15rem 0 3rem 0;
     color: white;
 }
 
-a {
+#landing-header a {
     color: white;
-    font-size: 120%;
     padding: .8rem 1.5rem;
     border: solid .1rem white;
     border-radius: .25rem;
     text-decoration: none;
+    background-color: transparent;
 }
 
 a:hover {
     text-decoration: none;
 }
 
-#text {
-    padding-top: 100px;  
+#landing-header {
+    text-align: center;
+    z-index: 1;
+}
+
+.slideshow { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .slideshow li { 
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    background-image:url(https://ww3.sinaimg.cn/mw1024/6f816019gw1evha3fw2x7j20dw08pgm4.jpg);
-    background-repeat:repeat;
-    background-clip: border-box;  
-/*    background-size: cover; */
-    box-sizing: border-box;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: b 10s linear infinite;
-}
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 50s linear infinite; 
+  }
 
-@keyframes b { 
+  .slideshow li:nth-child(1) { 
+    background-image: url(http://wx3.sinaimg.cn/large/712f1b13gy1foxbn4dvanj20ob0rse1v.jpg) 
+  }
+  .slideshow li:nth-child(2) { 
+    background-image: url(http://wx3.sinaimg.cn/large/712f1b13gy1foxbn7hhh0j20xc0nk1kx.jpg);
+    animation-delay: 10s; 
+  }
+  .slideshow li:nth-child(3) { 
+    background-image: url(http://wx4.sinaimg.cn/large/712f1b13gy1fox82qdglhj20sg0iz0ug.jpg);
+    animation-delay: 20s; 
+  }
+  .slideshow li:nth-child(4) { 
+    background-image: url(http://wx2.sinaimg.cn/large/742467fagy1fotuoyvofbj20kg0p4wiq.jpg);
+    animation-delay: 30s; 
+  }
+  .slideshow li:nth-child(5) { 
+    background-image: url(http://wx4.sinaimg.cn/large/7a189ed1gy1fj2vw7bt0cj21hc0o91g1.jpg);
+    animation-delay: 40s; 
+  }
+
+  @keyframes imageAnimation { 
     0% { 
-        background-position: 0px 0px; 
-        animation-timing-function: linear;
+      opacity: 0; 
+      animation-timing-function: ease-in;
     }
-    100% {
-        background-position: -300px 0px; 
-        animation-timing-function: linear;
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
     }
+    20% {
+      opacity: 1
+    }
+    30% {
+      opacity: 0
+    }
+  }
