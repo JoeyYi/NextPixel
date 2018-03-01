@@ -18,7 +18,7 @@
                         <span> / </span>
                         <a class="navbar-item" href="/register">Sign Up</a>
                     <% } else { %>
-                        <a class="navbar-item" href="#"><%= currentUser.username %></a>
+                        <a class="navbar-item" href="/users/<%= currentUser._id %>"><%= currentUser.username %></a>
                         <span> / </span>
                         <a class="navbar-item" href="/logout">Logout</a>
                     <% } %>

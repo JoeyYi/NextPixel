@@ -11,6 +11,8 @@
         <button id="fav" 
         <% if(currentUser){ %>
         onclick="addFavs()"
+        <% } else {%>
+        onclick="window.location.href='/login'"
         <% } %>
         ><i class="fa fa-star-o" aria-hidden="true"></i> --</button>
         <% if(currentUser && post.user.id.equals(currentUser._id)){ %>

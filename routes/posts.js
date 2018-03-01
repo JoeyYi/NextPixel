@@ -26,29 +26,9 @@ router.get("/latest",function(req,res){
     });
 });
 
-//get favorite
-// router.get("/:id/fav",function(req,res){
-//     Post.findById(req.params.id, function(err,foundPost){
-//         if(err){
-//             console.log(err);
-//         }else {
-//             res.send("<i class='fa fa-star-o' aria-hidden='true'></i> " + foundPost.favorites.toString());
-//         }
-//     });
-// });
 
-// //toggle favorite
-// router.get("/:id/fav",function(req,res){
-//     Post.findById(req.params.id, function(err,foundPost){
-//         if(err){
-//             console.log(err);
-//         }else {
-//             res.send("<i class='fa fa-star-o' aria-hidden='true'></i> " + foundPost.favorites.toString());
-//         }
-//     });
-// });
 
-//toggle favorite
+//get favorites
 
 router.get("/:id/fav", function(req,res){
     User.where("favorites").in([mongoose.Types.ObjectId(req.params.id)]).exec(function(err, foundUsers){
@@ -70,6 +50,7 @@ router.get("/:id/fav", function(req,res){
     });
 });
 
+//toggle favorites
 router.post("/:id/fav", function(req,res){
     User.where("favorites").in([mongoose.Types.ObjectId(req.params.id)]).exec(function(err, foundUsers){
         if(err){
@@ -100,62 +81,7 @@ router.post("/:id/fav", function(req,res){
     });
 });
 
-// router.get("/:id/a", function(req,res){
-//     User.findById(req.user.id, function(err, foundUser){
-//         if(err || !foundUser){
-//             console.log(err);
-//         } else {
-//             console.log("FAVs: " + foundUser.favorites);
-//             var favIndex;
-//             var isInArray = foundUser.favorites.some(function(postObj,index){
-//                 favIndex = index;
-//                 return postObj.equals(req.params.id);
-//             })
-//             if(isInArray){
 
-//             }
-
-//         }
-//     })
-    
-
-// });
-
-// router.post("/:id/fav/:num", function(req,res){
-//     User.findById(req.user.id, function(err, foundUser){
-//         if(err || !foundUser){
-//             console.log(err);
-//         } else {
-//             var hasfavorited = -1;
-//             foundUser.favorites.forEach(function(favid, i){
-//                 if(favid.equals(req.params.id)){ hasfavorited = i;}
-//             });
-//             console.log(hasfavorited);
-//             if(hasfavorited < 0){
-//                 // var newPost = new Post({_id: req.params.id});
-//                 // newPost.save();
-//                 foundUser.favorites.push({_id: req.params.id});
-//                 foundUser.save();
-//                 Post.findByIdAndUpdate(
-//                     req.params.id, 
-//                     {favorites: (parseInt(req.params.num) + 1)},
-//                     {new: true},
-//                     function(err, updatedPost){
-//                         if(err){
-//                             console.log(err);
-//                         } else {
-//                             res.send("<i class='fa fa-star' aria-hidden='true'></i> " + updatedPost.favorites.toString());
-//                         }                      
-//                 });            
-//             } else {
-//                 res.send("<i class='fa fa-star-o' aria-hidden='true'></i> " + req.params.num);
-//             }
-//         }
-
-//     })
-    
-
-// });
 
 //INDEX
 

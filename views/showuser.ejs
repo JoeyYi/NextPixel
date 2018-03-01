@@ -1,0 +1,28 @@
+<% include partials/header %>
+
+<div class="row" id="user-header">
+    <img class="two columns" id="avatar" src="http://pic.cr173.com/up/2017-5/2017051708280838183.jpg" />
+    <div class="ten columns">
+        <h4 id="username"><%= user.username %></h4>
+        <p>Joined <%= moment(user.createdAt).fromNow() %></p>
+    </div>
+</div>
+
+
+
+<div id="fav">
+    <h5><i class="fa fa-star" aria-hidden="true"></i> Favorites</h5> 
+    <ul>
+    <% user.favorites.forEach(function(post){ %>
+        <li class="row">
+            <img class="two columns" src="<%= post.img %>" />
+            <div class="ten columns">
+                <a href="/posts/<%= post._id %>"><%= post.name %></a>
+                <p><%= post.description %></p>
+            </div>
+        </li>
+    <% }) %>
+    </ul>
+</div>
+<% include partials/footer %>
+

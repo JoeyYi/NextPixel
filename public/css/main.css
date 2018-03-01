@@ -10,7 +10,7 @@ body {
 }
 
 ul {
-    list-style: none;
+    list-style: none !important;
 }
 
 a {
@@ -73,6 +73,10 @@ form textarea {
 
 .right {
     float: right;
+}
+
+.left {
+    float: left;
 }
 
 .strong {
@@ -143,3 +147,20 @@ form textarea {
     background-position: center;
 }
 
+#fav {
+    width: 60%;
+}
+
+#avatar {
+    padding: 1px;
+    border: solid 1px #dedede;
+    border-radius: 2px;
+}
+
+#username {
+    margin-bottom: 10px;
+}
+
+#user-header {
+    margin-top: 10px;
+}

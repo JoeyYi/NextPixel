@@ -14,9 +14,10 @@ var express        = require("express"),
     flash          = require("connect-flash");
 
 //requiring routes
-var postRoutes = require("./routes/posts"),
-    commentRoutes = require("./routes/comments"),
-    indexRoutes = require("./routes/index");
+var postRoutes     = require("./routes/posts"),
+    commentRoutes  = require("./routes/comments"),
+    userRoutes     = require("./routes/user"),
+    indexRoutes    = require("./routes/index");
 
 
 dburl = process.env.DATABASEURL || "mongodb://localhost/project";
@@ -63,6 +64,7 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/posts", postRoutes);
 app.use("/posts/:id/comments", commentRoutes);
+app.use("/users", userRoutes);
 
 
 app.listen(process.env.PORT || 3000, function(){
