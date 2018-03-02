@@ -164,3 +164,51 @@ form textarea {
 #user-header {
     margin-top: 10px;
 }
+
+#carousel-wrap {
+    height: 150px;
+    overflow: hidden;
+}
+
+
+# 个人信息
+
+ - 王亦静/女/1997 
+ - 上海外国语大学/信息管理与信息系统系/大三在读/GPA 3.80
+ - 北卡罗来纳大学威尔明顿分校/信息系统系/2017 fall交换生
+ - Github：https://github.com/JoeyYi
+ - 居住地：上海
+---      
+      
+# 联系方式
+
+- 手机/微信：13601832295
+- Email：wyjs97115@sina.com
+
+
+# 个人项目
+
+### SISU Graphics 上外校园楼宇地图应用
+https://joeyyi.github.io/SISU-campus-map/
+作为项目负责人，带领小组成员编写地图数据，采用jQuery Mobile框架开发界面，HTML5 Canvas绘制地图。成果在创新创业项目评选中获得一等奖，学校范围内有一定量日常使用者。虽然是一个静态网页项目，但由此我对web开发有了初步的了解和进一步学习的兴趣。
+
+
+### Next Pixel 内容分享平台
+https://damp-lake-13286.herokuapp.com
+一个用户主要采用Node.js + Express + MongoDB的架构，前后端交互尝试使用RESTful借口和Ajax技术，实现了用户认证、评论、收藏等功能。
+.carousel-item img{
+    height: 150px;
+    width: 150px;
+}
+
+
+@media (max-width: 600px) {
+    .three.columns {
+        width: 100% !important;
+    }
+    .nine.columns {
+        width: 100% !important;
+    }
+
+}
+

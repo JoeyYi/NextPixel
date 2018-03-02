@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    box-sizing: border-box;
 }
 
 body {
@@ -8,11 +9,14 @@ body {
     height: 100%;
     background-color: black;
     height: 100%;
+    box-sizing: border-box;
 }
 
 #landing-header h1 {
-    margin: 15rem 0 3rem 0;
+    padding-top: 15rem; 
+    margin: 0 0 3rem 0;
     color: white;
+    box-sizing: border-box;
 }
 
 #landing-header a {
