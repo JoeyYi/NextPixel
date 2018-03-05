@@ -1,5 +1,6 @@
 # NextPixel
 A simple web app using NodeJS, Express and MongoDB 
+基于Node, Express, mongoDB的内容分享平台
 - Displaying&managing posts
 - User registration&authentication
 - Keep updating...
@@ -52,7 +53,7 @@ A simple web app using NodeJS, Express and MongoDB
 |-|-|-|
 |Show user profile|/users/:user_id|GET|
 
-#### Todos
+## Todos
 - Fuzzy search
 - Pagination
 - User info update

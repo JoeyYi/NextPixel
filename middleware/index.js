@@ -52,7 +52,7 @@ middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
-    req.flash("flash", "You need to be loged in to do that")
+    req.flash("flash", "You need to be logged in to do that")
     res.redirect("/login");
 }
 
