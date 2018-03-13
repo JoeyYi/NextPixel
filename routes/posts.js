@@ -105,11 +105,11 @@ router.get("/new",middleware.isLoggedIn, function(req,res){
 
 //CREATE
 router.post("/",middleware.isLoggedIn, function(req,res){
-    var name = req.body.name;
-    var img = req.body.img;
-    var desc = req.body.description;
+    var name = req.sanitize(req.body.name) || "Untitled Post";
+    var img = req.sanitize(req.body.img) || "";
+    var description = req.sanitize(req.body.description) || "No description";
     var user = { id: req.user._id, username: req.user.username};
-    var newPost = {name:name, img:img, description:desc, user:user};
+    var newPost = {name:name, img:img, description:description, user:user};
     Post.create(newPost,function(err,created){
         if(err){
             console.log(err);
@@ -143,7 +143,13 @@ router.get("/:id/edit", middleware.checkPostOwnership, function(req,res){
 
 //UPDATE
 router.put("/:id", middleware.checkPostOwnership, function(req, res){
-    Post.findByIdAndUpdate(req.params.id,req.body.post, function(err, updatedPost){
+    var name = req.sanitize(req.body.post.name) || "Untitled Post";
+    var img = req.sanitize(req.body.post.img) || "";
+    var description = req.sanitize(req.body.post.description) || "No description";
+    var user = { id: req.user._id, username: req.user.username};
+    var editedPost = {name:name, img:img, description:description, user:user};
+    
+    Post.findByIdAndUpdate(req.params.id, editedPost, function(err, updatedPost){
         if(err){
             res.redirect("/posts/" + req.params.id);
         } else {

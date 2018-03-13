@@ -22,6 +22,7 @@ router.post("/", middleware.isLoggedIn, function(req,res){
             console.log(err);
             res.redirect("/posts/" + req.params.id);
         } else {
+            req.body.comment.text = req.sanitize(req.body.comment.text) || "No content";
             Comment.create(req.body.comment, function(err,comment){
                 if(err){
                     req.flash("flash", "Oops! Something went wrong...");
@@ -55,6 +56,7 @@ router.get("/:cid/edit", middleware.checkCommentOwnership, function(req, res){
 });
 
 router.put("/:cid", middleware.checkCommentOwnership, function(req, res){
+    req.body.comment.text = req.sanitize(req.body.comment.text) || "No content";
     Comment.findByIdAndUpdate(req.params.cid, req.body.comment, function(err, foundComment){
         if(err){
             res.redirect("back");

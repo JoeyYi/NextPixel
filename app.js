@@ -11,7 +11,8 @@ var express          = require("express"),
     User             = require("./models/user"),
     seedDB           = require("./seeds"),
     methodOverride   = require("method-override"),
-    flash            = require("connect-flash");
+    flash            = require("connect-flash"),
+    expressSanitizer = require("express-sanitizer");
 
 //requiring routes
 var postRoutes     = require("./routes/posts"),
@@ -37,6 +38,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
+app.use(expressSanitizer());
 app.locals.moment = require("moment");
 
 //PASSPORT CONFIG
@@ -67,6 +69,6 @@ app.use("/posts/:id/comments", commentRoutes);
 app.use("/users", userRoutes);
 
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 4000, function(){
     console.log("Serving at port 3000");
 });
